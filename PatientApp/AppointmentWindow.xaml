@@ -1,0 +1,31 @@
+﻿<Window xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"  x:Class="PatientApp.AppointmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PatientApp"
+        mc:Ignorable="d"
+        Style="{StaticResource MaterialDesignWindow}"
+        Title="AppointmentWindow" Height="450" Width="800">
+    <Grid Margin="50 5 50 5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="Appointment Date" FontSize="16" Margin="5"/>
+            <DatePicker Name="DtpAppointmentDate" Margin="5" FontSize="16" Width="150"/>
+            <TextBlock Text="Appointment Time" FontSize="16" Margin="5"/>
+            <materialDesign:TimePicker Name="TmpAppointmentTime" Width="150"/>
+        </StackPanel>
+
+        <TextBlock Text="Notes" VerticalAlignment="Bottom" Margin="5"/>
+        <TextBox Name="TbxNotes" Grid.Row="1" FontSize="16" Margin="5" VerticalContentAlignment="Top"/>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Button Name="BtnAdd" Content="Add" Margin="5" Width="117.5" Click="BtnAdd_Click"/>
+            <Button Name="BtnEdit" Content="Edit" Margin="5" Width="117.5" Click="BtnEdit_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

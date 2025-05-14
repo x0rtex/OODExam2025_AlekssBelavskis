@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PatientApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Style="{StaticResource MaterialDesignWindow}"
+        Title="Patient App" Height="450" Width="800">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Patients" FontSize="24" FontWeight="Bold" Margin="5"/>
+        <ListBox Name="LbxPatients" Grid.Row="1" Grid.RowSpan="4" SelectionChanged="LbxPatients_SelectionChanged"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Patient Details" FontSize="24" FontWeight="Bold" Margin="5"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top">
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Height="40" VerticalAlignment="Top" Margin="5">
+                <TextBox Name="TbxPatientFirstName" Margin="5" FontSize="16" Text="Enter first name" GotFocus="TbxPatientFirstName_GotFocus" Width="150" LostFocus="TbxPatientFirstName_LostFocus"/>
+                <TextBox Name="TbxPatientSurname" Margin="5" FontSize="16" Text="Enter surname" GotFocus="TbxPatientSurname_GotFocus" Width="150" LostFocus="TbxPatientSurname_LostFocus"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Height="40" VerticalAlignment="Top" Margin="5">
+                <TextBox Name="TbxPatientContactNumber" Margin="5" FontSize="16" Text="Enter phone number" GotFocus="TbxPatientContactNumber_GotFocus" Width="150" LostFocus="TbxPatientContactNumber_LostFocus"/>
+                <TextBlock Text="Enter DOB" FontSize="16" Margin="10"/>
+                <DatePicker Name="DtpPatientDOB" Margin="5" FontSize="16" Width="100"/>
+            </StackPanel>
+        </StackPanel>
+        <Button Name="BtnAddPatient" Grid.Row="1" Grid.Column="1" Content="Add" Margin="5" Width="250" VerticalAlignment="Bottom" Click="BtnAddPatient_Click"/>
+
+        <Separator Grid.Row="2" Grid.Column="1" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="Appointments" FontSize="24" FontWeight="Bold" Margin="5"/>
+        <ListBox Name="LbxAppointments" Grid.Row="3" Grid.Column="1"/>
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button Name="BtnAddAppointment" Content="Add" Margin="5" Width="117.5" Click="BtnAddAppointment_Click"/>
+            <Button Name="BtnEditAppointment" Content="Edit" Margin="5" Width="117.5" Click="BtnEditAppointment_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
